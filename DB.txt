@@ -1,0 +1,47 @@
+CREATE TABLE USUARIO (CPF VARCHAR(255) NOT NULL, NOME VARCHAR(255), SENHA VARCHAR(255), VOTOU VARCHAR(1) DEFAULT '0'  NOT NULL, PRIMARY KEY (CPF));
+CREATE TABLE PREFEITO (CPF INTEGER NOT NULL, NOME VARCHAR(255), VOTOS INTEGER, PARTIDO VARCHAR(50), VICE VARCHAR(50), SLOGAN VARCHAR(50), NUMERO VARCHAR(3), IMAGEM VARCHAR(250), PRIMARY KEY (CPF));
+CREATE TABLE GOVERNADOR (CPF INTEGER NOT NULL, NOME VARCHAR(255), VOTOS INTEGER, PARTIDO VARCHAR(50), VICE VARCHAR(50), SLOGAN VARCHAR(50), NUMERO VARCHAR(3), IMAGEM VARCHAR(250), PRIMARY KEY (CPF));
+CREATE TABLE PRESIDENTE (CPF INTEGER NOT NULL, NOME VARCHAR(255), VOTOS INTEGER, PARTIDO VARCHAR(50), VICE VARCHAR(50), SLOGAN VARCHAR(50), NUMERO VARCHAR(3), IMAGEM VARCHAR(250), PRIMARY KEY (CPF));
+
+
+INSERT INTO APP.USUARIO (CPF, NOME, SENHA, VOTOU)
+	VALUES ('047733865911', 'Barbara Cristina', 'senha12345', '0');
+INSERT INTO APP.USUARIO (CPF, NOME, SENHA, VOTOU)
+	VALUES ('40233015011', 'Ingrid C, 'senhateste2', '0');
+INSERT INTO APP.USUARIO (CPF, NOME, SENHA, VOTOU)
+	VALUES ('12345', '12345', '12345', '0');
+INSERT INTO APP.USUARIO (CPF, NOME, SENHA, VOTOU)
+	VALUES ('27376888053', 'Odalio Gentil', 'votacao', '0');
+
+INSERT INTO APP.PREFEITO (CPF, NOME, VOTOS, PARTIDO, VICE, SLOGAN, NUMERO, IMAGEM)
+	VALUES (1, 'Paola Bracho', 0, 'SBT', 'Carlos Daniel', 'Eu quero um milhão de dólares', '11', 'resources/images/paola.jpg');
+INSERT INTO APP.PREFEITO (CPF, NOME, VOTOS, PARTIDO, VICE, SLOGAN, NUMERO, IMAGEM)
+	VALUES (2, 'Sinhozinho Malta', 0, 'GLOBO', 'Viúva Porcina', 'Tô certo, ou tô errado?', '85', 'resources/images/sinhozinhomalta.jpg');
+INSERT INTO APP.PREFEITO (CPF, NOME, VOTOS, PARTIDO, VICE, SLOGAN, NUMERO, IMAGEM)
+	VALUES (3, 'Juma Marruá', 0, 'Manchete', 'Joventino Leôncio Neto (Jove)', 'Queria mesmo era voltar para a minha casa', '90', 'resources/images/juma.jpg');
+INSERT INTO APP.PREFEITO (CPF, NOME, VOTOS, PARTIDO, VICE, SLOGAN, NUMERO, IMAGEM)
+	VALUES (4, 'Maria Hernández', 0, 'Televisa', 'Soraya Montenegro', 'Y a mucha honra', '95', 'resources/images/maria.jpg');
+INSERT INTO APP.PREFEITO (CPF, NOME, VOTOS, PARTIDO, VICE, SLOGAN, NUMERO, IMAGEM)
+	VALUES (5, 'BRANCO', 0, '', NULL, NULL, NULL, 'resources/images/branco.jpg');
+
+INSERT INTO APP.GOVERNADOR (CPF, NOME, VOTOS, PARTIDO, VICE, SLOGAN, NUMERO, IMAGEM)
+	VALUES (1, James Bond', 0, 'MI-6', 'Sean Connery', 'My name is Bond, James Bond', '07', 'resources/images/bond.jpg');
+INSERT INTO APP.GOVERNADOR (CPF, NOME, VOTOS, PARTIDO, VICE, SLOGAN, NUMERO, IMAGEM)
+	VALUES (2, 'O Exterminador', 0, 'Futuro', 'Sara Connor', 'Hasta la vista, Baby!', '91', 'resources/images/exterminador.jpg');
+INSERT INTO APP.GOVERNADOR (CPF, NOME, VOTOS, PARTIDO, VICE, SLOGAN, NUMERO, IMAGEM)
+	VALUES (3, 'Darth Vader', 0, 'Sith', 'Palpatine', 'Luke, I am your father', '77', 'resources/images/darth.jpg');
+INSERT INTO APP.GOVERNADOR (CPF, NOME, VOTOS, PARTIDO, VICE, SLOGAN, NUMERO, IMAGEM)
+	VALUES (4, 'Sherlock Holmes', 0, 'Scotland Yard', 'Dr. John Watson', 'Elementar, meu caro Watson', '22', 'resources/images/holmes.jpg');
+INSERT INTO APP.GOVERNADOR (CPF, NOME, VOTOS, PARTIDO, VICE, SLOGAN, NUMERO, IMAGEM)
+	VALUES (5, 'BRANCO', 0, '', NULL, NULL, NULL, 'resources/images/branco.jpg');
+
+INSERT INTO APP.PRESIDENTE (CPF, NOME, VOTOS, PARTIDO, VICE, SLOGAN, NUMERO, IMAGEM)
+	VALUES (1, 'Batman', 0, 'Gothan', 'Robin', 'Eu sou a vingança. Eu sou a noite. Eu sou... Batman!', '43', 'resources/images/batman.jpg');
+INSERT INTO APP.PRESIDENTE (CPF, NOME, VOTOS, PARTIDO, VICE, SLOGAN, NUMERO, IMAGEM)
+	VALUES (2, 'SuperMan', 0, 'PD', 'Lois Lane', 'Para o alto e avante!', '55', 'resources/images/superman.jpg');
+INSERT INTO APP.PRESIDENTE (CPF, NOME, VOTOS, PARTIDO, VICE, SLOGAN, NUMERO, IMAGEM)
+	VALUES (3, 'Mulher Maravilha', 0, 'DC', 'Lanterna Verde', 'Misericordiosa Minerva!', '12', 'resources/images/mulher.jpg');
+INSERT INTO APP.PRESIDENTE (CPF, NOME, VOTOS, PARTIDO, VICE, SLOGAN, NUMERO, IMAGEM)
+	VALUES (4, 'Coringa', 0, 'Asilo Arkham', 'Pinguin', 'Só é preciso um dia ruim para reduzir o mais são dos homens a um lunático', '99', 'resources/images/coringa.jpg');
+INSERT INTO APP.PRESIDENTE (CPF, NOME, VOTOS, PARTIDO, VICE, SLOGAN, NUMERO, IMAGEM)
+	VALUES (5, 'BRANCO', 0, '', NULL, NULL, NULL, 'resources/images/branco.jpg');
