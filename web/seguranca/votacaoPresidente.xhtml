@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+
+        <style>
+            .ui-datagrid-column{
+                width: 33%;
+            }
+
+            .ui-panel {
+                margin-top: 5px;
+            }
+        </style>
+
+        <title>Votação Presidente</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </h:head>
+    <h:body>
+
+        <p:dataGrid var="pres" value="#{presidenteBean.listPresidentes}" columns="3" rows="6">
+            <f:facet name="header">
+                Lista de Candidatos [Presidente]
+            </f:facet>
+            <p:column>
+                <p:panel header="#{pres.nome}">
+                    <img src="../#{pres.imagem}" alt="#{pres.nome}" style="width: 50px; height: 50px;"/>
+                    <h:panelGrid columns="2">
+                        <h:outputText value="Número:" style="font-weight: bold;"/>
+                        <h:outputText value="#{pres.numero}" style="display: inline-block"/>
+                        <h:outputText value="Vice:" style="font-weight: bold;"/>
+                        <h:outputText value="#{pres.vice}" />
+                        <h:outputText value="Partido:" style="font-weight: bold;"/>
+                        <h:outputText value="#{pres.partido}" />
+                        <h:outputText value="Slogan:" style="font-weight: bold;"/>
+                        <h:outputText value="#{pres.slogan}" />
+                    </h:panelGrid>
+                </p:panel>
+            </p:column>
+        </p:dataGrid>
+
+        <h:form id="FormVotacao">
+            <p:panel header="Presidente">
+                <h:panelGrid>    
+                    <p:selectOneMenu  id="MenuVotacaoPresidente" value="#{presidenteBean.nome}" converter="presidenteBeanCoverter">
+                        <f:selectItem itemLabel="Selecione o Candidato" />
+                        <f:selectItems value="#{presidenteBean.listPresidentes}" var="presidente" itemLabel="#{presidente.nome}" itemValue="#{presidente}"/>
+                    </p:selectOneMenu>
+                </h:panelGrid>
+                <p:commandButton value="Votar" action="#{presidenteBean.votar()}" style="margin-right:5px"/>
+            </p:panel>    
+        </h:form>
+    </h:body>
+</html>
