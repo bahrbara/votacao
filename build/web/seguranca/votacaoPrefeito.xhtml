@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <style>
+            .ui-datagrid-column{
+                width: 33%;
+            }
+
+            .ui-panel {
+                margin-top: 5px;
+            }
+        </style>
+        <title>Votação Prefeito</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </h:head>
+    <h:body>
+        <p:dataGrid var="pref" value="#{prefeitoBean.listPrefeitos}" columns="3" rows="6">
+            <f:facet name="header">
+                Lista de Candidatos [Prefeito]
+            </f:facet>
+            <p:column>
+                <p:panel header="#{pref.nome}">
+                    <img src="../#{pref.imagem}" alt="#{pref.nome}" style="width: 50px; height: 50px;"/>
+                    <h:panelGrid columns="2" styleClass="myTable">
+                        <h:outputText value="Número:" style="font-weight: bold;"/>
+                        <h:outputText value="#{pref.numero}" style="display: inline-block"/>
+                        <h:outputText value="Vice:" style="font-weight: bold;"/>
+                        <h:outputText value="#{pref.vice}" />
+                        <h:outputText value="Partido:" style="font-weight: bold;"/>
+                        <h:outputText value="#{pref.partido}" />
+                        <h:outputText value="Slogan:" style="font-weight: bold;"/>
+                        <h:outputText value="#{pref.slogan}" />
+                    </h:panelGrid>
+                </p:panel>
+            </p:column>
+        </p:dataGrid>
+
+        <h:form id="FormVotacaoPrefeito">
+            <p:panel header="Prefeito">
+                <h:panelGrid>    
+                    <p:selectOneMenu  id="MenuVotacaoPrefeito" value="#{prefeitoBean.nome}" converter="prefeitoBeanCoverter">
+                        <f:selectItem itemLabel="Selecione o Candidato" />
+                        <f:selectItems value="#{prefeitoBean.listPrefeitos}" var="prefeito" itemLabel="#{prefeito.nome}" itemValue="#{prefeito}"/>
+                    </p:selectOneMenu>
+                </h:panelGrid>
+                <p:commandButton value="Votar" action="#{prefeitoBean.votar()}" style="margin-right:5px"/>
+            </p:panel>
+
+        </h:form>
+    </h:body>
+</html>

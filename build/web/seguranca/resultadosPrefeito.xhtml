@@ -1,0 +1,71 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Resultados</title>
+
+        <style type="text/css">
+            .logo {
+                width: 5%
+            }
+
+            .detail {
+                width: 95%;
+                padding-left: 25px;
+            }
+
+            .detail td {
+                font-size: 24px;
+            }
+
+            .ui-datascroller .ui-datascroller-item {
+                border-bottom: 1px solid #A8A8A8;
+                padding: 25px 10px;
+                border-bottom-color: #A8A8A8;
+            }
+        </style>
+    </h:head>
+
+    <h:body>
+
+        <h:form> 
+            <p:dataScroller value="#{prefeitoBean.listVotacaoPrefeitos}" var="prefeito" chunkSize="10">
+                <f:facet name="header">
+                    RESULTADO PARCIAL [Prefeito]
+                </f:facet>
+
+                <h:panelGrid columns="2" style="width:100%" columnClasses="logo,detail">
+                    <img src="../#{prefeito.imagem}" alt="#{prefeito.nome}" style="width: 236px; height: 236px;"/>
+
+                    <p:outputPanel>
+                        <h:panelGrid columns="2" cellpadding="5">
+
+                            <h:outputText value="Candidato:" />
+                            <h:outputText value="#{prefeito.nome}" style="font-weight: bold"/>
+
+                            <h:outputText value="Votos:" />
+                            <h:outputText value="#{prefeito.votos}" style="font-weight: bold"/>
+
+                            <h:outputText value="Vice" />
+                            <h:outputText value="#{prefeito.vice}" style="font-weight: bold"/>
+
+                            <h:outputText value="Numero:" />
+                            <h:outputText value="#{prefeito.numero}" style="font-weight: bold"/>
+
+                            <h:outputText value="Partido" />
+                            <h:outputText value="#{prefeito.partido}" style="font-weight: bold"/>
+
+                            <h:outputText value="Slogan" />
+                            <h:outputText value="#{prefeito.slogan}" style="font-weight: bold"/>
+                        </h:panelGrid>
+                    </p:outputPanel>
+                </h:panelGrid>
+                
+            </p:dataScroller>
+            <p:commandButton value="Voltar" action="#{resultadosBean.voltar()}"  style="margin-left:10px; margin-top: 10px;"/>
+        </h:form>
+    </h:body>
+</html>

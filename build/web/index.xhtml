@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Sistema Votação Login</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </h:head>
+    <h:body>
+
+<!--        <h:form id="FormImage">
+            <img src="resources/images/background.png" alt=""/>
+            <h1>Eleições 2018</h1>
+        </h:form>-->
+
+        <h:form style="width:400px">
+            <p:panel header="Login Votação">
+                <h:panelGrid  columns="2" cellpadding="5">
+                    <h:outputLabel value="CPF:" style="font-weight:bold"/>
+                    <p:inputText id="CPF" value="#{usuarioBean.cpf}" required="True" label="CPF">
+                    </p:inputText>
+                    <h:outputLabel value="Senha" style="font-weight:bold"/>
+                    <p:password id="Senha" value="#{usuarioBean.senha}" required="True" label="Senha">    
+                    </p:password>
+                </h:panelGrid>
+                <p:commandButton value="Login" action="#{usuarioBean.login()}"  style="margin-left:70px"/>
+                <p:commandButton value="Cadastrar" immediate="true" action="#{usuarioBean.telaCadastro()}"  style="margin-left:5px"/>
+            </p:panel>
+        </h:form>
+    </h:body>
+</html>
